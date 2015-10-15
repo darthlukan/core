@@ -10,7 +10,7 @@ init_xcb(xcb_connection_t **con)
 {
 	*con = xcb_connect(NULL, NULL);
 	if (xcb_connection_has_error(*con))
-		errx(1, "unable connect to the X server");
+		errx(1, "unable to connect to the X server");
 }
 
 void
@@ -25,7 +25,7 @@ get_screen(xcb_connection_t *con, xcb_screen_t **scr)
 {
 	*scr = xcb_setup_roots_iterator(xcb_get_setup(con)).data;
 	if (*scr == NULL)
-		errx(1, "unable to retrieve screen informations");
+		errx(1, "unable to retrieve screen information");
 }
 
 int
